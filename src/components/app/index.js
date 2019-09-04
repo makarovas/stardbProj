@@ -1,1 +1,3 @@
-export { App } from './app.js';
+import App from './app';
+
+export default App;
