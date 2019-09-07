@@ -24,33 +24,34 @@ const withChildFunction = (Wrapped, fn) => {
 const renderName = ({ name }) => <span>{name}</span>;
 const renderModelAndName = ({ model, name }) => <span>{name} ({model})</span>;
 
-cosnt mapPersonMethodsToprops = (swapiService) => {
-  getData: swapiService.getAllPeople,
+const mapPersonMethodsToProps = (swapiService) => {
+  return {
+    getData: swapiService.getAllPeople,
+  }
 
 }
 
-cosnt mapStarshipsMethodsToprops = (swapiService) => {
-  getData: swapiService.getAllStarships,
-  
+const mapStarshipsMethodsTopProps = (swapiService) => {
+  return {
+  }
 }
 
-cosnt mapPlanetsMethodsToprops = (swapiService) => {
-  getData: swapiService.getAllPlanets,
-  
+const mapPlanetsMethodsToProps = (swapiService) => {
+  return {
+    getData: swapiService.getAllPlanets,
+  }
 }
 const PersonList = withSwapiService(withData(
   withChildFunction(ItemList, renderName),
-), mapPersonMethodsToprops)
+), mapPersonMethodsToProps)
 
-
-
-const PlanetList = withData(
+const PlanetList = withSwapiService(withData(
   withChildFunction(ItemList, renderName),
-);
+), mapPermapPlanetsMethodsToPropssonMethodsToProps)
 
-const StarshipList = withData(
-  withChildFunction(ItemList, renderModelAndName),
-);
+const StarshipList = withSwapiService(withData(
+  withChildFunction(ItemList, renderName),
+), mapStarshipsMethodsTopProps)
 
 export {
   PersonList,
