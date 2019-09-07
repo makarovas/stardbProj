@@ -1,9 +1,11 @@
-import {
-	SwapiServiceConsumer,
-	SwapiServiceProvider,
-} from './swapi-serive-context'
+import React from 'react';
+
+const {
+	Provider: SwapiServiceProvider,
+	Consumer: SwapiServiceConsumer
+} = React.createContext();
 
 export {
-	SwapiServiceConsumer,
 	SwapiServiceProvider,
+	SwapiServiceConsumer
 };
