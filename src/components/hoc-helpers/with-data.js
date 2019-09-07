@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Spinner from '../spinner';
 import ErrorIndicator from '../error-indicator';
 
+
+
 const withData = (View, getData) => {
   return class extends Component {
 
@@ -11,7 +13,7 @@ const withData = (View, getData) => {
     };
 
     componentDidMount() {
-      getData()
+      this.props.getData()
         .then((data) => {
           this.setState({
             data
@@ -22,7 +24,8 @@ const withData = (View, getData) => {
     render() {
       const { data } = this.state;
 
-      if (!data) {
+      if (!data)
+      {
         return <Spinner />;
       }
 

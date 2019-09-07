@@ -1,9 +1,9 @@
 import React from 'react';
 import ItemList from '../item-list';
-import { withData } from '../hoc-helpers';
+import { withData, withSwapiService } from '../hoc-helpers';
 import SwapiService from '../../services/swapi-service';
+import { getSnapshotData } from 'jest-snapshot/build/utils';
 
-const swapiService = new SwapiService();
 
 const {
   getAllPeople,
@@ -22,19 +22,35 @@ const withChildFunction = (Wrapped, fn) => {
 };
 
 const renderName = ({ name }) => <span>{name}</span>;
-const renderModelAndName = ({ model, name}) => <span>{name} ({model})</span>;
+const renderModelAndName = ({ model, name }) => <span>{name} ({model})</span>;
 
-const PersonList = withData(
-                      withChildFunction(ItemList, renderName),
-                      getAllPeople);
+cosnt mapPersonMethodsToprops = (swapiService) => {
+  getData: swapiService.getAllPeople,
+
+}
+
+cosnt mapStarshipsMethodsToprops = (swapiService) => {
+  getData: swapiService.getAllStarships,
+  
+}
+
+cosnt mapPlanetsMethodsToprops = (swapiService) => {
+  getData: swapiService.getAllPlanets,
+  
+}
+const PersonList = withSwapiService(withData(
+  withChildFunction(ItemList, renderName),
+), mapPersonMethodsToprops)
+
+
 
 const PlanetList = withData(
-                      withChildFunction(ItemList, renderName),
-                      getAllPlanets);
+  withChildFunction(ItemList, renderName),
+);
 
 const StarshipList = withData(
-                      withChildFunction(ItemList, renderModelAndName),
-                      getAllStarships);
+  withChildFunction(ItemList, renderModelAndName),
+);
 
 export {
   PersonList,
