@@ -8,15 +8,16 @@ const PlanetDetails = (props) => {
       <Record field="population" label="Population" />
       <Record field="rotationPeriod" label="Rotation Period" />
       <Record field="diameter" label="Diameter" />
-    </ItemDetails>
-  );
-};
+     </ItemDetails>
+    );
+      
 
-const mapMethodsToProps = (swapiService) => {
-  return {
-    getData: swapiService.getPlanet,
-    getImageUrl: swapiService.getPlanetImage
-  };
-};
+const mapMethodsToProps = ({getPlanet, getPlanetImage}) => {
+    return {
+      getData: getPlanet,
+    getImageUrl: getPlanetImage
+   };
+}
+  
 
-export default withSwapiService(PlanetDetails, mapMethodsToProps);
+  export default withSwapiService(PlanetDetails, mapMethodsToProps);  
