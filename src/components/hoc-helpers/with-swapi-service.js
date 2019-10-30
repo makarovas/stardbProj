@@ -8,7 +8,6 @@ const withSwapiService = (Wrapped, mapMethodsToProps) => {
             {
                (swapiService) => {
                   const serviceProps = mapMethodsToProps(swapiService);
-
                   return (
                      <Wrapped {...props} {...serviceProps} />
                   );

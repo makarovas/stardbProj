@@ -24,6 +24,7 @@ import './app.css';
 export default class App extends Component {
 
   swapiService = new DummySwapiService();
+  // swapiService = new SwapiService();
 
   state = {
     showRandomPlanet: true
@@ -40,15 +41,15 @@ export default class App extends Component {
   render() {
 
     const planet = this.state.showRandomPlanet ?
-      <RandomPlanet/> :
+      <RandomPlanet /> :
       null;
 
     const { getPerson,
-            getStarship,
-            getPersonImage,
-            getStarshipImage,
-            getAllPeople,
-            getAllPlanets } = this.swapiService;
+      getStarship,
+      getPersonImage,
+      getStarshipImage,
+      getAllPeople,
+      getAllPlanets } = this.swapiService;
 
     const personDetails = (
       <ItemDetails
