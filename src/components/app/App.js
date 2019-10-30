@@ -7,7 +7,7 @@ import ErrorBoundry from '../error-boundry';
 import ItemDetails, { Record } from "../item-details/item-details";
 import SwapiService from '../../services/swapi-service';
 import DummySwapiService from '../../services/dummy-swapi-service';
-
+import Row from '../row';
 import { SwapiServiceProvider } from '../swapi-service-context';
 
 import {
@@ -89,19 +89,19 @@ export default class App extends Component {
         <SwapiServiceProvider value={this.state.swapiService} >
           <div className="stardb-app">
             <Header onServiceChange={this.onServiceChange} />
-
-            <PersonDetails itemId={11} />
-
-            <PlanetDetails itemId={5} />
-
-            <StarshipDetails itemId={9} />
-
-            <PersonList />
-
-            <StarshipList />
-
-            <PlanetList />
-
+            {planet}
+            <Row
+              left={<PersonList />}
+              right={<PersonDetails itemId={11} />}
+            />
+            <Row
+              left={<PlanetDetails itemId={5} />}
+              right={<StarshipDetails itemId={9} />}
+            />
+            <Row
+              left={<StarshipList />}
+              right={<PlanetList />}
+            />
           </div>
         </SwapiServiceProvider>
       </ErrorBoundry>
