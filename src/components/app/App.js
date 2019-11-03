@@ -20,7 +20,7 @@ export default class App extends Component {
   onServiceChange = () => {
     this.setState(({ swapiService }) => {
       const Service = swapiService instanceof SwapiService ?
-                        DummySwapiService : SwapiService;
+        DummySwapiService : SwapiService;
       return {
         swapiService: new Service()
       };
@@ -35,7 +35,7 @@ export default class App extends Component {
           <div className="stardb-app">
             <Header onServiceChange={this.onServiceChange} />
 
-            <RandomPlanet />
+            <RandomPlanet updateInterval={4000} />
             <PeoplePage />
             <PlanetsPage />
             <StarshipsPage />
