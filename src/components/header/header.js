@@ -31,7 +31,7 @@ const Header = ({ onServiceChange }) => {
 
       <button
         onClick={onServiceChange}
-        className="btn btn-primary btn-sm big-custom">
+        className="btn btn-primary btn-sm">
         Change Service
       </button>
     </div>
