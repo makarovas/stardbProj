@@ -4,8 +4,7 @@ import './header.css';
 
 const Header = ({ onServiceChange }) => {
   return (
-    <div
-      className="header d-flex">
+    <div className="header d-flex">
       <h3>
         <a href="#/">
           StarDB
@@ -22,9 +21,11 @@ const Header = ({ onServiceChange }) => {
           <a href="#/starships">Starships</a>
         </li>
       </ul>
+
       <button
-        onClick={onServiceChange} className='btn btn-primary'>
-        Toggle data
+          onClick={onServiceChange}
+          className="btn btn-primary btn-sm">
+        Change Service
       </button>
     </div>
   );

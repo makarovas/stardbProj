@@ -1,28 +1,25 @@
-
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { PersonDetails, PersonList } from '../sw-components';
 import Row from '../row';
-import {
-	PersonDetails,
-	PlanetDetails,
-	StarshipDetails,
-	PersonList,
-	PlanetList,
-	StarshipList
-} from '../sw-components';
 
 export default class PeoplePage extends Component {
-	state = {
-		selectedItem: null
-	}
 
-	render() {
-		return (
-			<div>
-				<Row
-					left={<PersonList />}
-					right={<PersonDetails itemId={11} />}
-				/>
-			</div>
-		)
-	}
+  state = {
+    selectedItem: null
+  };
+
+  onItemSelected = (selectedItem) => {
+    this.setState({ selectedItem });
+  };
+
+  render() {
+    const { selectedItem } = this.state;
+
+    return (
+      <Row
+        left={<PersonList onItemSelected={this.onItemSelected} />}
+        right={<PersonDetails itemId={selectedItem} />} />
+    );
+  }
+
 }

@@ -8,7 +8,7 @@ const Record = ({ item, field, label }) => {
   return (
     <li className="list-group-item">
       <span className="term">{label}</span>
-      <span>{item[field]}</span>
+      <span>{ item[field] }</span>
     </li>
   );
 };
@@ -30,17 +30,15 @@ export default class ItemDetails extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.itemId !== prevProps.itemId ||
-      this.props.getData !== prevProps.getData
-    )
-    {
+      this.props.getData !== prevProps.getData ||
+      this.props.getImageUrl !== prevProps.getImageUrl) {
       this.updateItem();
     }
   }
 
   updateItem() {
     const { itemId, getData, getImageUrl } = this.props;
-    if (!itemId)
-    {
+    if (!itemId) {
       return;
     }
 
@@ -56,8 +54,7 @@ export default class ItemDetails extends Component {
   render() {
 
     const { item, image } = this.state;
-    if (!item)
-    {
+    if (!item) {
       return <span>Select a item from a list</span>;
     }
 
@@ -67,7 +64,7 @@ export default class ItemDetails extends Component {
       <div className="item-details card">
         <img className="item-image"
           src={image}
-          alt="item" />
+          alt="item"/>
 
         <div className="card-body">
           <h4>{name}</h4>
