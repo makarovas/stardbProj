@@ -29,7 +29,7 @@ export default class App extends Component {
 
   onLogin = () => {
     this.setState({
-      isLoggedIn: true
+      isLoggedIn: !this.state.isLoggedIn
     });
   };
 
@@ -54,7 +54,6 @@ export default class App extends Component {
             <div className="stardb-app">
               <Header onServiceChange={this.onServiceChange} />
               <RandomPlanet />
-
               <Switch>
                 <Route path="/"
                        render={() => <h2>Welcome to StarDB</h2>}
@@ -67,7 +66,6 @@ export default class App extends Component {
                          const { id } = match.params;
                          return <StarshipDetails itemId={id} />
                        }}/>
-
                 <Route
                   path="/login"
                   render={() => (
@@ -75,16 +73,13 @@ export default class App extends Component {
                       isLoggedIn={isLoggedIn}
                       onLogin={this.onLogin}/>
                   )}/>
-
                 <Route
                   path="/secret"
                   render={() => (
                     <SecretPage isLoggedIn={isLoggedIn} />
                   )}/>
-
                 <Route render={() => <h2>Page not found</h2>} />
               </Switch>
-
             </div>
           </Router>
         </SwapiServiceProvider>

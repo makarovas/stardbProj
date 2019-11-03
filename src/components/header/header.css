@@ -12,7 +12,16 @@
 
 .header ul li:hover {
   background-color: #444;
+  color: #97a107;
 }
+
+.header ul li:active{
+  background-color: #97a107;
+}
+.header ul li a:active{
+  color: black;
+}
+
 
 .header a:hover {
   text-decoration: none;
@@ -27,7 +36,9 @@
 }
 
 .header button {
-  height: 2.2rem;
+  max-height: 2.2rem;
   margin-top: 1px;
   margin-left: 3px;
 }
+
+

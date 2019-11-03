@@ -30,8 +30,8 @@ const Header = ({ onServiceChange }) => {
       </ul>
 
       <button
-          onClick={onServiceChange}
-          className="btn btn-primary btn-sm">
+        onClick={onServiceChange}
+        className="btn btn-primary btn-sm big-custom">
         Change Service
       </button>
     </div>
