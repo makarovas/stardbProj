@@ -17,10 +17,12 @@ export default class PeoplePage extends Component {
 
 	render() {
 		return (
-			<Row
-				left={<StarshipList />}
-				right={<StarshipDetails itemId={9} />}
-			/>
+			<div>
+				<Row
+					left={<PersonList />}
+					right={<PersonDetails itemId={11} />}
+				/>
+			</div>
 		)
 	}
 }

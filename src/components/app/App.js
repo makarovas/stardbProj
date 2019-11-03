@@ -11,13 +11,11 @@ import Row from '../row';
 import { SwapiServiceProvider } from '../swapi-service-context';
 
 import {
-  PersonDetails,
-  PlanetDetails,
-  StarshipDetails,
-  PersonList,
-  PlanetList,
-  StarshipList
-} from '../sw-components';
+  PeoplePage,
+  PlanetsPage,
+  StarshipPage
+} from '../pages';
+
 
 import './app.css';
 
@@ -28,7 +26,7 @@ export default class App extends Component {
 
   state = {
     showRandomPlanet: true,
-    swapiService: new DummySwapiService(),
+    swapiService: new SwapiService(),
   };
 
   onServiceChange = () => {
@@ -90,18 +88,9 @@ export default class App extends Component {
           <div className="stardb-app">
             <Header onServiceChange={this.onServiceChange} />
             {planet}
-            <Row
-              left={<PersonList />}
-              right={<PersonDetails itemId={11} />}
-            />
-            <Row
-              left={<PlanetDetails itemId={5} />}
-              right={<StarshipDetails itemId={9} />}
-            />
-            <Row
-              left={<StarshipList />}
-              right={<PlanetList />}
-            />
+            <PeoplePage />
+            <PlanetsPage />
+            <StarshipPage />
           </div>
         </SwapiServiceProvider>
       </ErrorBoundry>
