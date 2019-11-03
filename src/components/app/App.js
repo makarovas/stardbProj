@@ -54,8 +54,7 @@ export default class App extends Component {
           <Router>
             <div className="stardb-app">
               <Header onServiceChange={this.onServiceChange} />
-              <RandomPlanet />
-
+              <RandomPlanet updateInterval={3000} />
               <Switch>
                 <Route path="/"
                   render={() => <h2>Welcome to StarDB</h2>}
@@ -82,7 +81,7 @@ export default class App extends Component {
                   render={() => (
                     <SecretPage isLoggedIn={isLoggedIn} />
                   )} />
-
+                
                 <Route render={() => <h2>Page not found</h2>} />
               </Switch>
 
